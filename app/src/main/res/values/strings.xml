@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MyRSSReader</string>
+    <string name="ff_medium">sans-serif-medium</string>
+    <string name="ff_regular">sans-serif</string>
+    <string name="empty_lent">Добавьте RSS ленту</string>
+    <string name="lent_already_exist">Данная лента уже добавлена</string>
+    <string name="lent_not_added">Не удалось добавить Rss ленту</string>
+    <string name="progress_dialog_up">Working...</string>
+    <string name="progress_dialog_mid">Loading data...</string>
+</resources>
