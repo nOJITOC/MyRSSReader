@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String RSS = "rss";
     private static final String TAG = "TAG";
     private static final String EDIT_MODE_KEY = "EDIT_MODE_KEY";
-    private static final long RUN_DELAY = 1000;
+    private static final long RUN_DELAY = 1000l;
     private static final String PARCELABLE_KEY = "PARCELABLE_KEY";
     RecyclerView mRecyclerView;
     Toolbar mToolbar;
@@ -121,10 +121,14 @@ public class MainActivity extends AppCompatActivity {
 
     private void changeEditMode() {
         TextInputLayout til = (TextInputLayout) findViewById(R.id.rss_til);
+
         if (mCurrentEditMode) {
             til.setVisibility(View.VISIBLE);
             til.requestFocus();
+            mFab.setImageResource(R.drawable.ic_done_white_24dp);
         } else {
+            mFab.setImageResource(R.drawable.ic_add_white_24dp);
+
             EditText et = (EditText) til.getChildAt(0);
             String rssLent = et.getText().toString().trim().toLowerCase();
             et.setText("");
@@ -165,11 +169,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadRssLentsFromDb() {
-        showProgressDialog();
         mRssLents = mDataManager.getLentListFromDb();
         if (mRssLents.size() == 0) {
             showSnackbar(getString(R.string.empty_lent));
+
+        }else {
+            showProgressDialog();
         }
+
         mRetainedFragment.setData(new ArrayList<RssLentItem>());
         for (Lents rssLent : mRssLents) {
             mConnector.runOperation(new RssParseOperation(rssLent.getRss()), false);

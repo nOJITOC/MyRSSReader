@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/fba_right_space"
             android:layout_marginTop="@dimen/fba_right_space"
-            android:src="@drawable/ic_plus_one_white_24dp"
+            android:src="@drawable/ic_add_white_24dp"
             app:layout_anchor="@id/rss_container"
 
             app:layout_anchorGravity="right|top"/>
